@@ -1,5 +1,7 @@
 ## gitbook-plugin-feathers-versions
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs/gitbook-plugin-feathers-versions.svg)](https://greenkeeper.io/)
+
 > This is a modified version of [Versions](https://plugins.gitbook.com/plugin/versions)
 
 Display a `<select>` with other versions of your gitbook that you have specified in your `book.json` file.
