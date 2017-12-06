@@ -2,12 +2,10 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
     var versions = [];
 
     // Update the select with a list of versions
-    function updateVersions(_versions) {
-        versions = _versions || versions;
-
+    function updateVersions(url) {
         // Cleanup existing selector
         $('.versions-select').remove();
-
+    
         if (versions.length == 0) return;
 
         var $li = $('<li>', {
@@ -35,13 +33,21 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
             window.location.href = version.value;
         });
 
-        $li.prependTo('.book-summary ul.summary');
+        $li.prependTo('.book-summary ul.summary'); 
     }
 
     gitbook.events.bind('start', function (e, config) {
         var pluginConfig = config.versions || {};
-        if (pluginConfig.options) {
-            updateVersions(pluginConfig.options);
+
+        if (pluginConfig.gitbookConfigURL) {
+            $.getJSON(pluginConfig.gitbookConfigURL).then(function(bookJSON) {
+                if(bookJSON.pluginsConfig && bookJSON.pluginsConfig.versions &&
+                    bookJSON.pluginsConfig.versions.options) {
+                    versions = bookJSON.pluginsConfig.versions.options;
+
+                    updateVersions();
+                }
+            });
         }
     });
 
