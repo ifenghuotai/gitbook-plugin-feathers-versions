@@ -16,7 +16,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 
         $.each(versions, function(i, version) {
             var $option = $('<option>', {
-                'selected': version.value === window.location.origin,
+                'selected': window.location.origin.indexOf(version.value) >= 0,
                 'value': version.value,
                 'text': version.text
             });
@@ -30,7 +30,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
             });
             // Get actual version Object from array
             var version = filtered[0];
-            window.location.href = version.value;
+            window.location.href = version.value.indexOf("http") >= 0 ? version.value : (window.location.origin + version.value);
         });
 
         $li.prependTo('.book-summary ul.summary'); 
