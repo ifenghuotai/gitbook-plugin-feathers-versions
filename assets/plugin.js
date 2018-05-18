@@ -30,6 +30,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
             });
             // Get actual version Object from array
             var version = filtered[0];
+            version.value = version.value + "/index.html";
             window.location.href = version.value.indexOf("http") >= 0 ? version.value : (window.location.origin + version.value);
         });
 
