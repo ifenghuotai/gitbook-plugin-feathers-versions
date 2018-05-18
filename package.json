@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-versions-select",
+  "name": "gitbook-plugin-ifenghuotai-versions",
   "description": "GitBook Plugin to have a select dropdown",
   "main": "index.js",
   "version": "0.1.1",
