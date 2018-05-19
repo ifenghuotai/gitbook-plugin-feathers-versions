@@ -12,10 +12,10 @@ Put this in your book.json:
 
 ```js
 {
-    "plugins": [ "feathers-versions" ],
+    "plugins": [ "ifenghuotai-versions" ],
     "pluginsConfig": {
         "versions": {
-            "gitbookConfigURL": "https://raw.githubusercontent.com/feathersjs/feathers-docs/master/book.json",
+            "gitbookConfigURL": "https://raw.githubusercontent.com/ifenghuotai/fenghuotai-release/master/book.json",
             "options": [
                 {
                     "value": "https://docs.feathersjs.com",
